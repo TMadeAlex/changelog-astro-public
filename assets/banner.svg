@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-labelledby="t d">
+  <title id="t">AstroLog</title>
+  <desc id="d">Everything done to his home, in plain words The picture: 15 candles arrive left to right with a line along their closes; the shapes are illustration, not data. With reduced motion, the finished picture shows at once.</desc>
+  <style>
+    /* Motion only for readers who have not asked for less. Outside this block everything is in its finished state. */
+    @media (prefers-reduced-motion: no-preference) {
+      .draw { stroke-dasharray: 100; animation: draw 2.6s cubic-bezier(.4,0,.2,1) both; }
+      .arrive { animation: arrive .5s ease-out both; }
+      .breathe { transform-box: fill-box; transform-origin: center; animation: breathe 8s steps(48) 3s infinite; }
+      .halo { transform-box: fill-box; transform-origin: center; animation: halo 5s steps(60) 3.6s infinite; }
+    }
+    @keyframes draw { from { stroke-dashoffset: 100 } to { stroke-dashoffset: 0 } }
+    @keyframes arrive { from { opacity: 0 } to { opacity: 1 } }
+    @keyframes breathe { 0%, 100% { transform: scale(1) } 50% { transform: scale(1.07) } }
+    @keyframes halo { 0% { opacity: .55; transform: scale(1) } 70%, 100% { opacity: 0; transform: scale(2.1) } }
+    .halo { opacity: 0 }
+  </style>
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b121a"/><stop offset="1" stop-color="#0a101a"/></linearGradient>
+    <linearGradient id="line" gradientUnits="userSpaceOnUse" x1="668" y1="0" x2="1160" y2="0"><stop offset="0.00" stop-color="#249094"/><stop offset="0.50" stop-color="#34d4d8"/><stop offset="1.00" stop-color="#96e9eb"/></linearGradient>
+    <linearGradient id="fade" gradientUnits="userSpaceOnUse" x1="620" y1="0" x2="1200" y2="0"><stop offset="0" stop-color="#34d4d8" stop-opacity="0"/><stop offset=".35" stop-color="#34d4d8"/><stop offset="1" stop-color="#96e9eb"/></linearGradient>
+    <clipPath id="card"><rect width="1200" height="260" rx="18"/></clipPath>
+  </defs>
+  <g clip-path="url(#card)">
+    <!-- an opaque ground: the same picture on GitHub's light and dark themes -->
+    <rect width="1200" height="260" fill="url(#ground)"/>
+    <g class="arrive" style="animation-delay:0.25s"><path d="M695.6 168.5V205.4" stroke="#34d4d8" stroke-width="1.5"/><rect x="686.2" y="191.2" width="18.7" height="7.9" rx="1" fill="#34d4d8"/></g>
+    <g class="arrive" style="animation-delay:0.42s"><path d="M726.8 166.6V206.9" stroke="#34d4d8" stroke-width="1.5"/><rect x="717.4" y="186.1" width="18.7" height="5.1" rx="1" fill="#34d4d8"/></g>
+    <g class="arrive" style="animation-delay:0.60s"><path d="M758.0 135.5V187.1" stroke="#34d4d8" stroke-width="1.5"/><rect x="748.6" y="154.3" width="18.7" height="31.8" rx="1" fill="#34d4d8"/></g>
+    <g class="arrive" style="animation-delay:0.77s"><path d="M789.2 136.4V183.2" stroke="#34d4d8" stroke-width="1.5"/><rect x="779.8" y="150.2" width="18.7" height="4.1" rx="1" fill="#34d4d8"/></g>
+    <g class="arrive" style="animation-delay:0.94s"><path d="M820.4 128.8V191.8" stroke="#1d696f" stroke-width="1.5"/><rect x="811.0" y="150.2" width="18.7" height="19.2" rx="1" fill="#0a101a" stroke="#1d696f" stroke-width="1.5"/></g>
+    <g class="arrive" style="animation-delay:1.12s"><path d="M851.6 149.3V212.0" stroke="#1d696f" stroke-width="1.5"/><rect x="842.2" y="169.4" width="18.7" height="11.8" rx="1" fill="#0a101a" stroke="#1d696f" stroke-width="1.5"/></g>
+    <g class="arrive" style="animation-delay:1.29s"><path d="M882.8 134.6V194.5" stroke="#34d4d8" stroke-width="1.5"/><rect x="873.4" y="145.5" width="18.7" height="35.7" rx="1" fill="#34d4d8"/></g>
+    <g class="arrive" style="animation-delay:1.46s"><path d="M914.0 140.3V151.2" stroke="#1d696f" stroke-width="1.5"/><rect x="904.6" y="145.5" width="18.7" height="4.1" rx="1" fill="#0a101a" stroke="#1d696f" stroke-width="1.5"/></g>
+    <g class="arrive" style="animation-delay:1.64s"><path d="M945.2 112.4V164.8" stroke="#34d4d8" stroke-width="1.5"/><rect x="935.8" y="124.7" width="18.7" height="24.8" rx="1" fill="#34d4d8"/></g>
+    <g class="arrive" style="animation-delay:1.81s"><path d="M976.4 103.0V140.9" stroke="#34d4d8" stroke-width="1.5"/><rect x="967.0" y="120.4" width="18.7" height="4.3" rx="1" fill="#34d4d8"/></g>
+    <g class="arrive" style="animation-delay:1.98s"><path d="M1007.6 84.1V124.9" stroke="#34d4d8" stroke-width="1.5"/><rect x="998.2" y="96.8" width="18.7" height="23.6" rx="1" fill="#34d4d8"/></g>
+    <g class="arrive" style="animation-delay:2.16s"><path d="M1038.8 68.3V103.8" stroke="#1d696f" stroke-width="1.5"/><rect x="1029.4" y="96.8" width="18.7" height="4.0" rx="1" fill="#0a101a" stroke="#1d696f" stroke-width="1.5"/></g>
+    <g class="arrive" style="animation-delay:2.33s"><path d="M1070.0 72.9V105.5" stroke="#34d4d8" stroke-width="1.5"/><rect x="1060.6" y="73.7" width="18.7" height="27.1" rx="1" fill="#34d4d8"/></g>
+    <g class="arrive" style="animation-delay:2.50s"><path d="M1101.2 65.6V106.4" stroke="#1d696f" stroke-width="1.5"/><rect x="1091.8" y="73.7" width="18.7" height="3.5" rx="1" fill="#0a101a" stroke="#1d696f" stroke-width="1.5"/></g>
+    <g class="arrive" style="animation-delay:2.68s"><path d="M1132.4 38.0V106.7" stroke="#34d4d8" stroke-width="1.5"/><rect x="1123.0" y="40.2" width="18.7" height="37.0" rx="1" fill="#34d4d8"/></g>
+    <path class="draw" pathLength="100" d="M695.6 191.2 L726.8 186.1 L758.0 154.3 L789.2 150.2 L820.4 169.4 L851.6 181.2 L882.8 145.5 L914.0 149.5 L945.2 124.7 L976.4 120.4 L1007.6 96.8 L1038.8 100.8 L1070.0 73.7 L1101.2 77.2 L1132.4 40.2" fill="none" stroke="#96e9eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation-delay:1.80s"/>
+    <circle class="halo" cx="1132.4" cy="40.2" r="9" fill="none" stroke="#96e9eb" stroke-width="2"/>
+    <circle cx="1132.4" cy="40.2" r="4.5" fill="#96e9eb"/>
+    <rect x="0.0" y="248" width="300.5" height="12" fill="#0c1719"/><rect x="300.0" y="248" width="300.5" height="12" fill="#249094"/><rect x="600.0" y="248" width="300.5" height="12" fill="#34d4d8"/><rect x="900.0" y="248" width="300.5" height="12" fill="#e6fafa"/>
+    <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif"><text x="56" y="72.0" fill="#34d4d8" font-size="15" font-weight="700" letter-spacing=".6">TMadeAlex · for TMade Alex</text><text x="56" y="137.6" fill="#e6fafa" font-size="60" font-weight="700" letter-spacing="-.5">AstroLog</text><text x="56" y="181.4" fill="#c7dadb" font-size="23">Everything done to his home, in plain words</text></g>
+  </g>
+</svg>
