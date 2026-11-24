@@ -1,0 +1,145 @@
+/* TMade Alex's look for the arrival kit, from his TRADERMADE colours (the six values of his site's
+   src/data/site.ts `tone`): primary #34d4d8, deep #0c1719, mid #249094, tint #e6fafa, on-dark #5fe0e3,
+   on-dark-soft #9eeef0. Night first, as on his site; Morning is the same colours in daylight, a misty
+   teal. Load after arrival.css, before the site's own CSS.
+
+   Modes are set on attribute selectors, so a light card in the splash can preview a mode by carrying
+   data-theme itself. --mid and --primary are this home's own tokens (the AstroLog's badges, rules and
+   the candles behind each page read them). Text on both grounds stays above 7:1. */
+
+:root,
+[data-theme="night"] {
+  --background: #0c1719;
+  --foreground: #e2f5f5;
+  --heading: #f2fdfd;
+  --muted: #9fbfc0;
+  --surface: #102326;
+  --surface-muted: #152d31;
+  --border: #213f43;
+  --accent: #5fe0e3;
+  --accent-strong: #9eeef0;
+  --on-accent: #062a2c;
+  --primary: #34d4d8;
+  --mid: #249094;
+  --scrim: rgba(12, 23, 25, 0.62);
+  --arr-backdrop: rgba(4, 10, 11, 0.66);
+  color-scheme: dark;
+}
+
+[data-theme="morning"] {
+  --background: #c2e6e7;
+  --foreground: #0c1719;
+  --heading: #0c1719;
+  --muted: #24474a;
+  --surface: #eefbfb;
+  --surface-muted: #d8f1f1;
+  --border: #9fcfd1;
+  --accent: #155a5d;
+  --accent-strong: #0f4447;
+  --on-accent: #ffffff;
+  --primary: #1d8f93;
+  --mid: #249094;
+  --scrim: rgba(194, 230, 231, 0.7);
+  --arr-backdrop: rgba(12, 23, 25, 0.34);
+  color-scheme: light;
+}
+
+/* Shared by every mode: his banner's faces, self-hosted (Poppins, JetBrains Mono for small labels),
+   and a preview strip of made-up candles for the splash cards. */
+:root,
+[data-theme] {
+  --font-heading: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --heading-settings: normal;
+  --body-leading: 1.65;
+  --perf: color-mix(in srgb, var(--primary) 45%, transparent);
+  --ink: linear-gradient(180deg, transparent 0 30%, color-mix(in srgb, var(--primary) 70%, transparent) 30% 70%, transparent 70%) 6% 50% / 9% 64% no-repeat,
+    linear-gradient(180deg, transparent 0 12%, color-mix(in srgb, var(--mid) 80%, transparent) 12% 58%, transparent 58%) 22% 50% / 9% 80% no-repeat,
+    linear-gradient(180deg, transparent 0 40%, color-mix(in srgb, var(--primary) 70%, transparent) 40% 88%, transparent 88%) 38% 50% / 9% 70% no-repeat,
+    linear-gradient(180deg, transparent 0 22%, color-mix(in srgb, var(--accent) 60%, transparent) 22% 64%, transparent 64%) 54% 50% / 9% 76% no-repeat,
+    linear-gradient(180deg, transparent 0 8%, color-mix(in srgb, var(--primary) 70%, transparent) 8% 46%, transparent 46%) 70% 50% / 9% 84% no-repeat,
+    linear-gradient(180deg, transparent 0 34%, color-mix(in srgb, var(--mid) 80%, transparent) 34% 80%, transparent 80%) 86% 50% / 9% 66% no-repeat,
+    linear-gradient(180deg, var(--surface), color-mix(in srgb, var(--primary) 12%, var(--surface)));
+}
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* ── the cyan dot: his name and every page title close with it, as on his site ─────────────── */
+.dot-end::after {
+  content: ".";
+  color: var(--primary);
+}
+
+/* ── PARTY_MODE (the motion of that name): his cyan drifts slowly through every colour, on the
+   accents only. Nothing flashes; off with Still, reading mode, more contrast, or less motion. ── */
+@keyframes party-hue {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+:root[data-motion="party"]:not([data-reading="on"]):not([data-contrast="more"]) .party-hue {
+  animation: party-hue 18s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-motion]) .party-hue {
+    animation: none;
+  }
+}
+
+/* ── shape: soft and round, like his site's glass ─────────────────────────────────────────── */
+:root {
+  --arr-radius: 14px;
+}
+.arr-frame.arr-panel {
+  background: linear-gradient(150deg, color-mix(in srgb, var(--accent) 55%, var(--border)) 0%, var(--border) 36%, var(--border) 70%, color-mix(in srgb, var(--mid) 60%, var(--border)) 100%);
+}
+.arr-card-ink {
+  background-size: auto;
+  transition: filter 0.4s ease;
+}
+.arr-card:hover .arr-card-ink {
+  filter: brightness(1.15) saturate(1.1);
+}
+
+/* ── a chart's faint grid instead of plain rules ──────────────────────────────────────────── */
+.arr-rule {
+  height: 3px;
+  background: linear-gradient(90deg, var(--perf) 1px, transparent 1px) 0 50% / 12px 3px repeat-x;
+}
+.arr-people:not(.arr-people-compact),
+.arr-latest {
+  border: 1px solid var(--border);
+  border-radius: var(--arr-radius);
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+}
+.arr-people:not(.arr-people-compact) > li + li,
+.arr-latest > li + li {
+  border-top: 1px solid var(--border);
+}
+.arr-latest a:hover {
+  background: var(--surface-muted);
+}
+
+/* ── the current page in the nav: a cyan underline, like the glowing pill on his site ───────── */
+:root:not([data-contrast="more"]) .arr-nav-a[aria-current="page"],
+:root:not([data-contrast="more"]) .arr-nav-a.is-current {
+  box-shadow: inset 0 -2px 0 var(--primary);
+}
+.arr-map-card.is-here {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+/* ── the community window: a live card with one link shows just that link. The kit always draws
+   a public slot and a join slot; Whop and YouTube each have one public page, so an empty "coming
+   soon" slot beside it would be untrue. ── */
+.arr-plat:not(.is-soon) .arr-plat-link.is-off {
+  display: none;
+}
