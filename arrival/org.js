@@ -38,7 +38,7 @@
       name: "AstroLog",
       motto: "Everything done to his home, in plain words.",
       about:
-        "TMade Alex is a futures trader, a live streamer, the host of Meet the Trader on FundedNext, and a fashion photographer in New York. A member of his community set up a home for him on GitHub as a gift: his website and a few quiet rooms around it. This record says what was done to it, and when. TMade Alex decides what stays.",
+        "TMade Alex is a futures trader, streamer and host of TMade, and of Meet the Trader on FundedNext; he is also a fashion photographer in New York. A member of his community set up a home for him on GitHub as a gift: his website and a few quiet rooms around it. This record says what was done to it, and when. TMade Alex decides what stays.",
       mark: { src: LOG + "/assets/favicon.svg" },
       home: {
         label: "tmadealex.github.io",
